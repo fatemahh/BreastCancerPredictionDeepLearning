@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Breast Cancer Prediction</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">Practical Machine Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Breast Cancer Prediction</h1>
+        <ul class="list-unstyled">
+          <li>Fatemah Abdelwahed 900212212</li>
+          <li>Youssef Montasser 900192780</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+        <p>
+            In the year 2020, breast cancer was diagnosed in 2.3 million women and resulted in
+            685,000 deaths worldwide. By the conclusion of that year, there were 7.8 million women who
+            had been diagnosed with breast cancer within the last five years, establishing it as the most
+            widespread form of cancer globally (Centers for Disease Control and Prevention, 2020). We will train a deep learning model to predict Invasive Ductal Carcinoma (IDC), the most
+            common subtype of all breast cancers, in breast histology images. This model will automatically
+            give a prediction after analyzing the images of breast cancer images.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+          The dataset, Breast Histopathology Images, was created by Janowczyk and Madabhushi and Roa et al.
+          The initial dataset included 162 slide images scanned at a 40x magnification. Since slide
+          images are naturally quite large in terms of their spatial dimensions, an effort was made to
+          facilitate their handling by extracting a total of 277,524 patches measuring 50x50 pixels, of size
+          approximately 3 GB.  <br>
+          These patches encompassed:  <br>
+          - 198,738 instances representing negative examples, indicating the absence of breast
+          cancer.  <br>
+          - 78,786 instances representing positive examples, indicating the presence of breast cancer
+          within the patch.  <br>
+          It's evident that there exists an imbalance in the class distribution, with more than twice
+          as many negative data points as positive data points.
+ 	</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/cnn.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+          These images patches are examples of input to the model, with their output, either as 1, where it means positive,
+          there is IDC, and 0, which means negative, absence of IDC.		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/Picture1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+          Reference: Desai, M., & Shah, M. (2021). An anatomization on breast cancer detection and diagnosis employing multi-layer perceptron neural network (MLP) and Convolutional neural network (CNN). Clinical EHealth, 4, 1–11. https://doi.org/10.1016/j.ceh.2020.11.002
+
+          ‌		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/StateofArtjpg.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+          The model we used is based on a tutorial, on pyimagesearch. 
+          The code is annotated, and explained in each step, which helps understand and add our updates to it. Additionally, it has an accuracy of 83%, which leaves room for improvement.
+          <br/> The model uses The Convolutional Neural Network (CNN), mainly used for image analysis, identification, and classification tasks due to its ability to simplify images for practical analysis. 
+          The reason why we chose this model is because we found that it is excellent in image processing, which is perfect for our project. 
+          From our research, we found that CNN can avoid overfitting because of its parameter sharing. 
+            The model ran on 40 Epochs.
+          <br/> URL for baseline model: https://pyimagesearch.com/2019/02/18/breast-cancer-classification-with-keras-and-deep-learning/#download-the-code
+              </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/Plot.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 text-left">
+            <h2 class="mt-5">Proposed Updates</h2>
+
+            <p>
+                We tried many different updates to get a better accuracy, sensitivity, and specificity.
+            </p>
+
+            <h5 class="mt-5">Update #1: Different Epochs</h5>
+            <p>
+                We tried different epochs: 3 epochs, 40 epochs and 150 epochs.
+            </p>
+            <br />
+            <p>
+                3 EPOCHS
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/3Epochs.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            <br />
+            <p>
+                40 EPOCHS
+            </p>
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/40Epochs.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            <br />
+            <p>
+                150 EPOCHS
+            </p>
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/150Epochs.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+
+            <h5 class="mt-5">Update #2: Used new Optimizer</h5>
+            <p>
+                We changed the optimizer from Adagrad to Adam.
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Adam.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+
+            <h5 class="mt-5">Update #3: Change train, test, validation division</h5>
+            <p>
+                We changed the train, test, validation divison from 80, 10, 10 to 90, 5, 5.
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Division.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+
+            <h5 class="mt-5">Update #4: Changes in Augmentation</h5>
+            <p>
+                We made many different changes to the Augmentation.
+            </p>
+            <br />
+            <p>
+                Original Augmentation
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Augmentation1.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            <br />
+            <p>
+                No Augmentation
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Augmentation2.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            <br />
+            <p>
+                Changes in Zoom range from
+                0.05 to 0.5. <br />
+                Changes in Rotation range
+                from 20 to 10.
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Augmentation3.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            <br />
+            <p>
+                No rotation. <br />
+                Making fill-mode from
+                nearest to reflect.
+
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Augmentation4.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+
+            <h5 class="mt-5">Update #5: Added an Attention Layer</h5>
+            <p>
+                We added an Attention Layer.
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Attention.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+
+            <h5 class="mt-5">Update #6: Changes in CNN Model</h5>
+            <p>
+                We made various changes to the CNN Model.
+            </p>
+            <br />
+            <p>
+                Reducing number of layers:
+                Removing 3 Convolutional layers of 128 filters with their pooling layer
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Model1.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            <br />
+            <p>
+                Reduced the number of layers and changed the number of filters.  <br />
+                Changed from 32, 64 filters to 16, 32 filters.
+            </p>
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Model2.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+            Removing 3 Convolutional layers of 128 filters with
+            their pooling layer had the best overall accuracy for the model at 87%.
+            <br /> <!-- Empty Line before the image -->
+            <div class="img-container" align="center">
+                <!-- Block parent element -->
+                <img src="resources/images/Model1.png" class="img-fluid text-center">
+            </div>
+            <br /> <!-- Empty Line after the image -->
+            Compared to our original baseline model on pyimagesearch, we got a better accuracy of 4%, with the baseline model having 83% accuracy.
+            <br />
+            Compared to the State of the art, it had the same accuracy as Iesmantas and Alzbutas's CNN model.
+            It is still a step behind the other State of the Art model accuracies, with them reaching 90.5%, 96% and even 99.86%.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <li>Programming framework: Tensorflow and Keras</li>
+		  <li>Training hardware: Anaconda</li>
+		  <li>Training time: 3 hours for 40 Epochs</li>
+		  <li>Number of epochs: 40 Epochs</li>
+		  <li>Time per epoch: Max of 474s, Min of 139s</li>
+		  <li>Any other important detail or difficulties: + 30 mins to create folder for the datasets</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+        <p>
+            In this study, we used Convolutional Neural Networks (CNNs) to predict Invasive Ductal Carcinoma (IDC), 
+            the most common type of breast cancer, by analyzing histology images. We tweaked the model through a series of changes to its structure and settings, and it ended up being more accurate, 
+            reaching 87%. We found that the best setup involved taking out three layers with 128 filters each, along with their pooling layers.
+            <br />
+            Our experiments showed that the model could handle different settings like epochs, optimizer choice, data splitting, and image augmentation. 
+            While we made progress, there's room for more exploration. We could improve the model further by looking into advanced CNN structures, better optimization methods, 
+            and adding more relevant details. It's also important to consider metrics like sensitivity and specificity for understanding how reliable the model is in real-world situations.
+            <br />
+            Looking forward, we need to dig deeper into combining different types of data and fixing any imbalances in our dataset. 
+            Continuing research in these areas will make our model stronger and more applicable in real-world medical scenarios.would be valuable for comprehensive breast cancer prediction.
+        </p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+        <ol>
+            <li><a href="https://www.who.int/news-room/fact-sheets/detail/breast-cancer#:~:text=In%202020%2C%20there%20were%202.3,the%20world’s%20most%20prevalent%20cancer.">
+                Problem statement url: World Health Organization. (n.d.). Breast cancer. World Health Organization.</a></li>
+            <li><a href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images/">Dataset URL</a></li>
+            <li><a href="https://pyimagesearch.com/2019/02/18/breast-cancer-classification-with-keras-and-deep-learning/">Model Reference URL</a></li>
+            <li>Desai, M., & Shah, M. (2021). An anatomization on breast cancer detection and diagnosis employing multi-layer perceptron neural network (MLP) and Convolutional neural network (CNN). Clinical EHealth, 4, 1–11. https://doi.org/10.1016/j.ceh.2020.11.002
+        </ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
