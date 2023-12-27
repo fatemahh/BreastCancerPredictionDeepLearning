@@ -1,0 +1,10 @@
+[INFO] evaluating network...
+              precision    recall  f1-score   support
+
+           0       0.96      0.82      0.89     71295
+           1       0.67      0.92      0.78     28448
+
+    accuracy                           0.85     99743
+   macro avg       0.82      0.87      0.83     99743
+weighted avg       0.88      0.85      0.86     99743
+
